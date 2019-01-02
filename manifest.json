@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "BoB calc",
+  "name": "Band of Brothers calculator",
   "icons": [
     {
       "src": "favicon.ico",
