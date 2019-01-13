@@ -17,6 +17,6 @@
   margin:auto; /* center contents */
   font-size: calc(var(--cell-size)/2);
 }
-.c:hover{
+/* .c:hover{
   border: 2vw solid blue !important;
-}
+} */
