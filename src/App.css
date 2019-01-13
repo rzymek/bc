@@ -1,0 +1,22 @@
+.g/*rig*/ {
+  --cols: 6;
+  --cell-size: calc(100vw / var(--cols) - 1vw - 2px);
+  --max-rows: 7;
+
+  display: grid;
+  grid-template-columns: repeat(var(--cols), var(--cell-size));
+  grid-template-rows: repeat(var(--max-rows), var(--cell-size));
+  grid-gap: 1vw;
+}
+
+.c/*ell*/ {
+  border: 1vw solid;
+  display: grid; /* center contents */
+}
+.v/*alue*/ { 
+  margin:auto; /* center contents */
+  font-size: calc(var(--cell-size)/2);
+}
+.c:hover{
+  border: 2vw solid blue !important;
+}
