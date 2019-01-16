@@ -1,7 +1,7 @@
 .g/*rig*/ {
-  --cols: 6;
+  --cols: 5;
   --cell-size: calc(100vw / var(--cols) - 1vw - 2px);
-  --max-rows: 7;
+  --max-rows: 8;
 
   display: grid;
   grid-template-columns: repeat(var(--cols), var(--cell-size));
@@ -16,6 +16,11 @@
 .v/*alue*/ { 
   margin:auto; /* center contents */
   font-size: calc(var(--cell-size)/2);
+}
+.small/*alue*/ { 
+  text-align: center;
+  margin:auto; /* center contents */
+  font-size: calc(var(--cell-size)/6);
 }
 /* .c:hover{
   border: 2vw solid blue !important;
