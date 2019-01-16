@@ -21,25 +21,25 @@ export const defs = {
     orchards: { inf: 0 },
   },
   conceal: {
-    conceal: { label: '', inf: -1, gun: -1, mort: -1, art: -1 }
+    conceal: { inf: -1, gun: -1, mort: -1, art: -1 }
   },
   adjacent: {
-    adjacent: { inf: +3, }
+    adjacent: { inf: +3, art: 0, mort:0 }
   },
   final_op: {
     final_op: { inf: -2 }
   },
   elevation: {
-    higher: { inf: -1, key: '' },
-    lower: { inf: +1, key: '' },
+    higher: { inf: -1 },
+    lower: { inf: +1 },
   },
   smoke: {
-    smoke: { label: '', inf: -1, key: '' },
-    dispersed_smoke: { label: '', inf: 0, key: '' },
+    smoke: { inf: -1 },
+    dispersed_smoke: { inf: 0 },
   },
   in_open: {
-    '1-4': { inf: +4 },
-    '5-8': { inf: +2 },
-    '> 8': { inf: 0 },
+    '1-4': { inf: +4, art: 0, mort:0 },
+    '5-8': { inf: +2, art: 0, mort:0 },
+    '> 8': { inf: 0, art: 0, mort:0 },
   }
 }

@@ -41,15 +41,16 @@ class App extends React.Component<{}, State> {
     if (unselect) {
       this.setSelection({ [group]: undefined });
     } else {
-      const selection: Selection = { [group]: def };
+      const change: Selection = { [group]: def };
       if (def === defs.in_open["5-8"] || def == defs.in_open["> 8"]) {
-        selection.adjacent = undefined;
+        change.adjacent = undefined;
       }
-      if (def === defs.adjacent.adjacent
-        && selection.in_open !== undefined && selection.in_open !== defs.in_open["1-4"]) {
-        selection.in_open = undefined;
+      if (def === defs.adjacent.adjacent && (
+        selection.in_open === defs.in_open["5-8"] || selection.in_open == defs.in_open["> 8"]
+      )) {
+        change.in_open = undefined;
       }
-      this.setSelection(selection);
+      this.setSelection(change);
     }
   }
   renderSwitch = (def: Modifier, group: keyof Selection) => {
@@ -60,7 +61,7 @@ class App extends React.Component<{}, State> {
         border: current === def ? '1vw solid blue' : undefined
       })
     } onClick={e => this.handleSwitch(def, group)}>
-      <div className="v">{value(def.inf)}</div>
+      <div className="v">{value(def[this.state.shooter])}</div>
       <div className="small">{label(key)}</div>
     </div>;
   }
@@ -144,7 +145,7 @@ class App extends React.Component<{}, State> {
   }
 }
 const label = (key: string) => key.replace(/_/g, ' ');
-const value = (v: number) => (v > 0 ? '+' : '') + v;
+const value = (v: number | undefined) => v === undefined ? '' : ((v > 0 ? '+' : '') + v);
 const img = (key: string) => ({ path: `${key.replace(/[^a-z0-9-]/g, '_')}.png` });
 function keyForValue<T>(value: T, map: { [k: string]: T }) {
   for (let key in map) {
