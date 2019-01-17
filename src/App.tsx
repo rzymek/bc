@@ -14,13 +14,15 @@ type State = {
   shooter: Shooter;
   firepower: number | undefined;
   firepower10: number | undefined;
+  roll: number;
 }
 class App extends React.Component<{}, State> {
-  initial:State = {
+  initial: State = {
     selection: {},
     shooter: 'inf',
     firepower: 5,
     firepower10: undefined,
+    roll: NaN,
   }
   state = this.initial;
 
@@ -76,6 +78,14 @@ class App extends React.Component<{}, State> {
     </div>;
   }
 
+  renderDice = () => {
+    return <div className="c" style={
+      cell({ path: require('./img/d10.svg') }, {})
+    } onClick={e => this.setState({ roll: Math.floor(Math.random() * 10) + 1})}>
+      <div className="v" >{value(this.state.roll, '')}</div>
+    </div>;
+  }
+
   renderFirepower = (fp: number, isCurrently: (fp: number) => boolean, set: (fp: number | undefined) => void) => {
     const selected = isCurrently(fp);
     return <div className="c" style={{
@@ -108,6 +118,7 @@ class App extends React.Component<{}, State> {
     const s = this.renderShooter;
     const r = this.renderSwitch;
     const ac = this.renderReset;
+    const dice = this.renderDice;
     return (
       <div>
         <div className="g">
@@ -115,7 +126,7 @@ class App extends React.Component<{}, State> {
           {r(defs.terrain.wooden_building, 'terrain')}   {r(defs.elevation.lower, 'elevation')}    {s('art')} {s('stuka')}  {s('flame')}
           {r(defs.terrain.stone_building, 'terrain')}    {r(defs.elevation.higher, 'elevation')}
           {r(defs.in_open['1-4'], 'in_open')} {r(defs.in_open['5-8'], 'in_open')} {r(defs.in_open['> 8'], 'in_open')}
-          {r(defs.terrain.hedgerow, 'terrain')} {r(defs.terrain.pillbox, 'terrain')}  {r(defs.final_op.final_op, 'final_op')}   {n}  {n}
+          {r(defs.terrain.hedgerow, 'terrain')} {r(defs.terrain.pillbox, 'terrain')}  {r(defs.final_op.final_op, 'final_op')}   {n}  {dice()}
           {r(defs.terrain.woods, 'terrain')}    {r(defs.terrain.truck, 'terrain')}    {k(1)} {k(2)} {k(3)}
           {r(defs.terrain.foxhole_in_woods, 'terrain')}  {r(defs.terrain.dike_road, 'terrain')} {k(4)} {k(5)} {k(6)}
           {r(defs.terrain.foxhole, 'terrain')}  {r(defs.smoke.smoke, 'smoke')}  {k(7)} {k(8)} {k(9)}

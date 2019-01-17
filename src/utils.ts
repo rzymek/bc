@@ -1,5 +1,5 @@
 export const label = (key: string) => key.replace(/_/g, ' ');
-export const value = (v: number | undefined) => isNumber(v) ? ((v > 0 ? '+' : '') + v) : '';
+export const value = (v: number | undefined, plus = '+') => isNumber(v) ? ((v > 0 ? plus : '') + v) : '';
 export const img = (key: string) => ({ path: require(`./img/${key.replace(/[^a-z0-9-_\/]/g, '')}.png`) });
 
 export const undefinedToNaN = (n:number|undefined): number => n === undefined ? NaN : n;
