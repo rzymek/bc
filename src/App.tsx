@@ -1,9 +1,9 @@
 import React, { Component, CSSProperties } from 'react';
 import './App.css';
-import { isUndefined } from 'util';
 import { defs, Modifier } from './defs';
 import { cell } from './cell';
 import { keyForValue, img, value, label, undefinedToNaN } from './utils';
+import { d10 } from './dice';
 
 type Selection = {
   [key in keyof typeof defs]?: Modifier;
@@ -14,15 +14,18 @@ type State = {
   shooter: Shooter;
   firepower: number | undefined;
   firepower10: number | undefined;
-  roll: number;
+  rolling: boolean;
+  rolls: { value: number, time: Date }[];
 }
+const diceRollSound = new Audio(require('./sound/dice-roll.mp3'));
 class App extends React.Component<{}, State> {
   initial: State = {
     selection: {},
     shooter: 'inf',
     firepower: 5,
     firepower10: undefined,
-    roll: NaN,
+    rolls: [],
+    rolling: false,
   }
   state = this.initial;
 
@@ -78,11 +81,29 @@ class App extends React.Component<{}, State> {
     </div>;
   }
 
+  rollD10 = () => {
+    if(this.state.rolling){
+      return;
+    }
+    this.setState({ rolling: true }, () =>
+      diceRollSound.play().then(() =>
+        setTimeout(() => this.setState({
+          rolls: [
+            { value: d10(), time: new Date() },
+            ...this.state.rolls
+          ],
+          rolling: false
+        }), 1000))
+    );
+  }
   renderDice = () => {
-    return <div className="c" style={
-      cell({ path: require('./img/d10.svg') }, {})
-    } onClick={e => this.setState({ roll: Math.floor(Math.random() * 10) + 1})}>
-      <div className="v" >{value(this.state.roll, '')}</div>
+    const {rolls,rolling} = this.state;
+    return <div className={`c ${rolling ? 'spin' : ''}`} style={
+      cell({ path: require('./img/d10.svg') }, {
+        borderStyle: 'none'
+      })
+    } onClick={this.rollD10}>
+      <div className="v" >{rolls[0] && !rolling && value(rolls[0].value, '')}</div>
     </div>;
   }
 
@@ -134,6 +155,8 @@ class App extends React.Component<{}, State> {
         </div>
         {this.firepower} + {this.result} = {this.firepower + this.result}
         <pre>{JSON.stringify(this.state, null, ' ')}</pre>
+        {this.state.rolls.map(roll =>
+          <div key={roll.time.getTime()}>{roll.value}: {roll.time.toLocaleTimeString()}</div>)}
       </div>
     );
   }

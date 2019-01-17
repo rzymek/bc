@@ -1,0 +1,1 @@
+export const d10 = () => Math.floor(Math.random() * 10) + 1;

@@ -23,6 +23,15 @@
   margin:auto; /* center contents */
   font-size: calc(var(--cell-size)/6);
 }
-/* .c:hover{
-  border: 2vw solid blue !important;
-} */
+
+.spin {
+  animation: rotation 1s infinite linear;
+}
+@keyframes rotation {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(359deg);
+  }
+}
