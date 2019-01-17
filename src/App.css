@@ -35,3 +35,15 @@
       transform: rotate(359deg);
   }
 }
+
+#panel {
+  position: absolute;
+  background-color: green;
+  
+  left: 38.5vw;
+  width: 59vw;
+  height: 38.5vw;
+  opacity: 0.2;
+  z-index: 1;
+  pointer-events: none;
+}

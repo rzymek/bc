@@ -144,6 +144,7 @@ class App extends React.Component<{}, State> {
     const roll = this.state.rolls[0] ? this.state.rolls[0].value : NaN;
     return (
       <div>
+        <div id="panel"/>
         <div className="g">
           {r(defs.conceal.conceal, 'conceal')} {r(defs.adjacent.adjacent, 'adjacent')} {s('inf')} {s('mort')} {s('gun')}
           {r(defs.terrain.wooden_building, 'terrain')}   {r(defs.elevation.lower, 'elevation')}    {s('art')} {s('stuka')}  {s('flame')}
