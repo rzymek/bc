@@ -1,15 +1,15 @@
 self.__precacheManifest = [
   {
-    "revision": "52c5c07d2965353331f3c08fece814b6",
-    "url": "/bc/static/media/hedgerow.52c5c07d.png"
+    "revision": "f26888fcd46b6d96fd2cc330d241228c",
+    "url": "/bc/static/media/higher.f26888fc.png"
   },
   {
-    "revision": "5f53d62553fde3d426a9",
-    "url": "/bc/static/css/main.073f6382.chunk.css"
+    "revision": "5b3d5a49a50315e9b239",
+    "url": "/bc/static/css/main.c3956527.chunk.css"
   },
   {
-    "revision": "449976d1e20568850d03",
-    "url": "/bc/static/js/1.449976d1.chunk.js"
+    "revision": "b5c8f79ea9362d9f1b3e",
+    "url": "/bc/static/js/1.b5c8f79e.chunk.js"
   },
   {
     "revision": "e834b51317ad0f3bd7da",
@@ -52,12 +52,12 @@ self.__precacheManifest = [
     "url": "/bc/static/media/foxhole_in_woods.179e2fa4.png"
   },
   {
-    "revision": "5f53d62553fde3d426a9",
-    "url": "/bc/static/js/main.5f53d625.chunk.js"
+    "revision": "52c5c07d2965353331f3c08fece814b6",
+    "url": "/bc/static/media/hedgerow.52c5c07d.png"
   },
   {
-    "revision": "f26888fcd46b6d96fd2cc330d241228c",
-    "url": "/bc/static/media/higher.f26888fc.png"
+    "revision": "5b3d5a49a50315e9b239",
+    "url": "/bc/static/js/main.5b3d5a49.chunk.js"
   },
   {
     "revision": "aa95066fbad8c96719627bf4cc5bee4a",
@@ -100,11 +100,15 @@ self.__precacheManifest = [
     "url": "/bc/static/media/woods.db8db471.png"
   },
   {
-    "revision": "6f9316c1a47e5e19a7ca6f1b3cb15aec",
-    "url": "/bc/static/media/d10.6f9316c1.svg"
+    "revision": "afd53a36809c8a4c660490a950f60cc5",
+    "url": "/bc/static/media/dice-roll.afd53a36.mp3"
   },
   {
-    "revision": "ab96dc097eee4b95f30f93be12b34aef",
+    "revision": "edd088490db40e53f405c921426fde88",
+    "url": "/bc/static/media/d10.edd08849.svg"
+  },
+  {
+    "revision": "96da5f1d61267d9dec09738390a77b2d",
     "url": "/bc/index.html"
   }
 ];
