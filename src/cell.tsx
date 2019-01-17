@@ -11,7 +11,7 @@ export const cell = (img: ImgPath, s: CSSProperties): CSSProperties => ({
   color: 'white',
   textShadow: outline(1, '#000'),
   backgroundSize: 'cover',
-  backgroundImage: `url(img/${img.path})`,
+  backgroundImage: `url(${img.path})`,
 })
 
 export interface ImgPath { path: string };

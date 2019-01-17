@@ -66,7 +66,7 @@ class App extends React.Component<{}, State> {
 
   renderShooter = (shooter: Shooter) => {
     return <div className="c" style={
-      cell({ path: `shooter/${shooter}.png` }, {
+      cell(img(`shooter/${shooter}`), {
         border: this.state.shooter === shooter ? '1vw solid blue' : undefined
       })
     } onClick={e => this.setState({ shooter })}>
@@ -136,7 +136,7 @@ class App extends React.Component<{}, State> {
 }
 const label = (key: string) => key.replace(/_/g, ' ');
 const value = (v: number | undefined) => isNumber(v) ? ((v > 0 ? '+' : '') + v) : '';
-const img = (key: string) => ({ path: `${key.replace(/[^a-z0-9-_]/g, '')}.png` });
+const img = (key: string) => ({ path: require(`./img/${key.replace(/[^a-z0-9-_\/]/g, '')}.png`) });
 
 const isNumber = (n:number|undefined):n is number => isFinite(n as number);  
 
