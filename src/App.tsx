@@ -1,8 +1,6 @@
 import React, { Component, CSSProperties } from 'react';
 import './App.css';
 import { isUndefined } from 'util';
-import find from "lodash/find"
-import mapValues from "lodash/mapValues"
 import { defs, Modifier } from './defs';
 import { cell } from './cell';
 
@@ -115,7 +113,7 @@ class App extends React.Component<{}, State> {
           {r(defs.terrain.wooden_building, 'terrain')}   {r(defs.elevation.lower, 'elevation')}    {s('art')} {s('stuka')}  {n}
           {r(defs.terrain.stone_building, 'terrain')}    {r(defs.elevation.higher, 'elevation')}
           {r(defs.in_open['1-4'], 'in_open')} {r(defs.in_open['5-8'], 'in_open')} {r(defs.in_open['> 8'], 'in_open')}
-          {r(defs.terrain.hedgerow, 'terrain')} {r(defs.terrain.pillbox, 'terrain')}  {n}   {n}  {n}
+          {r(defs.terrain.hedgerow, 'terrain')} {r(defs.terrain.pillbox, 'terrain')}  {r(defs.final_op.final_op, 'final_op')}   {n}  {n}
           {r(defs.terrain.woods, 'terrain')}    {r(defs.terrain.truck, 'terrain')}    {k(1)} {k(2)} {k(3)}
           {r(defs.terrain.foxhole_in_woods, 'terrain')}  {r(defs.terrain.dike_road, 'terrain')} {k(4)} {k(5)} {k(6)}
           {r(defs.terrain.foxhole, 'terrain')}  {r(defs.smoke.smoke, 'smoke')}  {k(7)} {k(8)} {k(9)}
@@ -128,16 +126,8 @@ class App extends React.Component<{}, State> {
   }
 
   get result() {
-    const fp = this.firepower;
     return Object.values(this.state.selection)
-      .map(group => {
-        if (group == undefined) {
-          return 0;
-        } else {
-          const { inf } = group;
-          return group[this.state.shooter] || inf;
-        }
-      })
+      .map(group => group == undefined ? 0 : group[this.state.shooter])
       .reduce((a, b) => a + b, 0)
   }
   get firepower() {
@@ -145,8 +135,11 @@ class App extends React.Component<{}, State> {
   }
 }
 const label = (key: string) => key.replace(/_/g, ' ');
-const value = (v: number | undefined) => v === undefined ? '' : ((v > 0 ? '+' : '') + v);
-const img = (key: string) => ({ path: `${key.replace(/[^a-z0-9-]/g, '_')}.png` });
+const value = (v: number | undefined) => isNumber(v) ? ((v > 0 ? '+' : '') + v) : '';
+const img = (key: string) => ({ path: `${key.replace(/[^a-z0-9-_]/g, '')}.png` });
+
+const isNumber = (n:number|undefined):n is number => isFinite(n as number);  
+
 function keyForValue<T>(value: T, map: { [k: string]: T }) {
   for (let key in map) {
     if (map[key] === value) {
