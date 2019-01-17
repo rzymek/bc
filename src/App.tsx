@@ -121,7 +121,7 @@ class App extends React.Component<{}, State> {
     return <div className="c" style={{
       borderColor: 'gray',
       backgroundColor: '#fdd'
-    }} onClick={e => this.setState(this.initial)}>
+    }} onClick={e => this.setState(Object.assign({}, this.initial, { rolls: this.state.rolls }))}>
       <div className="v">AC</div>
     </div>
   }
@@ -157,7 +157,7 @@ class App extends React.Component<{}, State> {
         </div>
         <div>{this.firepower} + {this.result} = {fp} </div>
         {this.state.rolls[0] && <div>
-          FP:{fp} - Roll:{roll} = {fp - roll} {fp-roll >= 0 ? 'HIT' : 'MISS'}
+          FP:{fp} - Roll:{roll} = {fp - roll} {fp - roll >= 0 ? 'HIT' : 'MISS'}
         </div>}
         <pre>{JSON.stringify(this.state, null, ' ')}</pre>
         {this.state.rolls.map(roll =>
