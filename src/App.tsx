@@ -15,12 +15,13 @@ type State = {
   firepower10: number | undefined;
 }
 class App extends React.Component<{}, State> {
-  state: State = {
+  initial:State = {
     selection: {},
     shooter: 'inf',
     firepower: 5,
     firepower10: undefined,
   }
+  state = this.initial;
 
   setSelection(selection: Selection) {
     console.log(selection, JSON.stringify(selection), Object.assign({}, {
@@ -84,13 +85,12 @@ class App extends React.Component<{}, State> {
     </div>
   }
 
-  renderFirepower10 = () => {
-    const selected = this.state.firepower === 10;
+  renderReset = () => {
     return <div className="c" style={{
       borderColor: 'gray',
-      backgroundColor: selected ? 'lightgray' : undefined
-    }} onClick={e => this.setState({ firepower: selected ? 0 : 10 })}>
-      <div className="v">10</div>
+      backgroundColor: '#fdd'
+    }} onClick={e => this.setState(this.initial)}>
+      <div className="v">AC</div>
     </div>
   }
 
@@ -106,6 +106,7 @@ class App extends React.Component<{}, State> {
     );
     const s = this.renderShooter;
     const r = this.renderSwitch;
+    const ac = this.renderReset;
     return (
       <div>
         <div className="g">
@@ -117,7 +118,7 @@ class App extends React.Component<{}, State> {
           {r(defs.terrain.woods, 'terrain')}    {r(defs.terrain.truck, 'terrain')}    {k(1)} {k(2)} {k(3)}
           {r(defs.terrain.foxhole_in_woods, 'terrain')}  {r(defs.terrain.dike_road, 'terrain')} {k(4)} {k(5)} {k(6)}
           {r(defs.terrain.foxhole, 'terrain')}  {r(defs.smoke.smoke, 'smoke')}  {k(7)} {k(8)} {k(9)}
-          {r(defs.terrain.fortified, 'terrain')} {r(defs.smoke.dispersed_smoke, 'smoke')}  {kk(10)} {k(0)}
+          {r(defs.terrain.fortified, 'terrain')} {r(defs.smoke.dispersed_smoke, 'smoke')}  {kk(10)} {k(0)} {ac()}
         </div>
         {this.firepower} + {this.result} = {this.firepower + this.result}
         <pre>{JSON.stringify(this.state, null, ' ')}</pre>
@@ -138,7 +139,7 @@ const label = (key: string) => key.replace(/_/g, ' ');
 const value = (v: number | undefined) => isNumber(v) ? ((v > 0 ? '+' : '') + v) : '';
 const img = (key: string) => ({ path: require(`./img/${key.replace(/[^a-z0-9-_\/]/g, '')}.png`) });
 
-const isNumber = (n:number|undefined):n is number => isFinite(n as number);  
+const isNumber = (n: number | undefined): n is number => isFinite(n as number);
 
 function keyForValue<T>(value: T, map: { [k: string]: T }) {
   for (let key in map) {
@@ -150,6 +151,5 @@ function keyForValue<T>(value: T, map: { [k: string]: T }) {
 }
 
 
-// const unitImg = (v: Unit) => ({ path: `${v}.png` });
 export default App;
 
