@@ -82,7 +82,7 @@ class App extends React.Component<{}, State> {
   }
 
   rollD10 = () => {
-    if(this.state.rolling){
+    if (this.state.rolling) {
       return;
     }
     this.setState({ rolling: true }, () =>
@@ -97,7 +97,7 @@ class App extends React.Component<{}, State> {
     );
   }
   renderDice = () => {
-    const {rolls,rolling} = this.state;
+    const { rolls, rolling } = this.state;
     return <div className={`c ${rolling ? 'spin' : ''}`} style={
       cell({ path: require('./img/d10.svg') }, {
         borderStyle: 'none'
@@ -140,6 +140,8 @@ class App extends React.Component<{}, State> {
     const r = this.renderSwitch;
     const ac = this.renderReset;
     const dice = this.renderDice;
+    const fp = this.firepower + this.result;
+    const roll = this.state.rolls[0] ? this.state.rolls[0].value : NaN;
     return (
       <div>
         <div className="g">
@@ -153,7 +155,10 @@ class App extends React.Component<{}, State> {
           {r(defs.terrain.foxhole, 'terrain')}  {r(defs.smoke.smoke, 'smoke')}  {k(7)} {k(8)} {k(9)}
           {r(defs.terrain.fortified, 'terrain')} {r(defs.smoke.dispersed_smoke, 'smoke')}  {kk(10)} {k(0)} {ac()}
         </div>
-        {this.firepower} + {this.result} = {this.firepower + this.result}
+        <div>{this.firepower} + {this.result} = {fp} </div>
+        {this.state.rolls[0] && <div>
+          FP:{fp} - Roll:{roll} = {fp - roll} {fp-roll >= 0 ? 'HIT' : 'MISS'}
+        </div>}
         <pre>{JSON.stringify(this.state, null, ' ')}</pre>
         {this.state.rolls.map(roll =>
           <div key={roll.time.getTime()}>{roll.value}: {roll.time.toLocaleTimeString()}</div>)}
