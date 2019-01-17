@@ -1,7 +1,7 @@
 {
   "main.css": "/bc/static/css/main.073f6382.chunk.css",
-  "main.js": "/bc/static/js/main.274b1f0a.chunk.js",
-  "main.js.map": "/bc/static/js/main.274b1f0a.chunk.js.map",
+  "main.js": "/bc/static/js/main.5f53d625.chunk.js",
+  "main.js.map": "/bc/static/js/main.5f53d625.chunk.js.map",
   "static/js/1.449976d1.chunk.js": "/bc/static/js/1.449976d1.chunk.js",
   "static/js/1.449976d1.chunk.js.map": "/bc/static/js/1.449976d1.chunk.js.map",
   "runtime~main.js": "/bc/static/js/runtime~main.e834b513.js",
@@ -20,14 +20,16 @@
   "static/media/lower.png": "/bc/static/media/lower.aa95066f.png",
   "static/media/orchards.png": "/bc/static/media/orchards.edae69a4.png",
   "static/media/river.png": "/bc/static/media/river.01d6847f.png",
+  "static/media/flame.png": "/bc/static/media/flame.d5a9bd12.png",
   "static/media/gun.png": "/bc/static/media/gun.edbe0f2e.png",
   "static/media/5-8.png": "/bc/static/media/5-8.a6b603e8.png",
   "static/media/stone_building.png": "/bc/static/media/stone_building.2c584278.png",
   "static/media/truck.png": "/bc/static/media/truck.f12955d3.png",
   "static/media/wooden_building.png": "/bc/static/media/wooden_building.d99d86d2.png",
   "static/media/woods.png": "/bc/static/media/woods.db8db471.png",
+  "static/media/d10.svg": "/bc/static/media/d10.6f9316c1.svg",
   "static/css/main.073f6382.chunk.css.map": "/bc/static/css/main.073f6382.chunk.css.map",
   "index.html": "/bc/index.html",
-  "precache-manifest.185d61c2a7b31227e8d61f4d8222abfa.js": "/bc/precache-manifest.185d61c2a7b31227e8d61f4d8222abfa.js",
+  "precache-manifest.8e716d38d1a8c3e99427c64e9a0caab5.js": "/bc/precache-manifest.8e716d38d1a8c3e99427c64e9a0caab5.js",
   "service-worker.js": "/bc/service-worker.js"
 }

@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "179e2fa4ba74056d2afdeba17025b2c3",
-    "url": "/bc/static/media/foxhole_in_woods.179e2fa4.png"
+    "revision": "52c5c07d2965353331f3c08fece814b6",
+    "url": "/bc/static/media/hedgerow.52c5c07d.png"
   },
   {
-    "revision": "274b1f0a1caf8e87f1fa",
+    "revision": "5f53d62553fde3d426a9",
     "url": "/bc/static/css/main.073f6382.chunk.css"
   },
   {
@@ -48,12 +48,12 @@ self.__precacheManifest = [
     "url": "/bc/static/media/foxhole.07566021.png"
   },
   {
-    "revision": "274b1f0a1caf8e87f1fa",
-    "url": "/bc/static/js/main.274b1f0a.chunk.js"
+    "revision": "179e2fa4ba74056d2afdeba17025b2c3",
+    "url": "/bc/static/media/foxhole_in_woods.179e2fa4.png"
   },
   {
-    "revision": "52c5c07d2965353331f3c08fece814b6",
-    "url": "/bc/static/media/hedgerow.52c5c07d.png"
+    "revision": "5f53d62553fde3d426a9",
+    "url": "/bc/static/js/main.5f53d625.chunk.js"
   },
   {
     "revision": "f26888fcd46b6d96fd2cc330d241228c",
@@ -70,6 +70,10 @@ self.__precacheManifest = [
   {
     "revision": "01d6847f95c4faa59bae944e0e35a524",
     "url": "/bc/static/media/river.01d6847f.png"
+  },
+  {
+    "revision": "d5a9bd12ace8aaa7c3804feae1dc6fc7",
+    "url": "/bc/static/media/flame.d5a9bd12.png"
   },
   {
     "revision": "edbe0f2e7a38fa53a2abf6df1403746b",
@@ -96,7 +100,11 @@ self.__precacheManifest = [
     "url": "/bc/static/media/woods.db8db471.png"
   },
   {
-    "revision": "041612b2cffdcc39106c63facc62185a",
+    "revision": "6f9316c1a47e5e19a7ca6f1b3cb15aec",
+    "url": "/bc/static/media/d10.6f9316c1.svg"
+  },
+  {
+    "revision": "ab96dc097eee4b95f30f93be12b34aef",
     "url": "/bc/index.html"
   }
 ];
