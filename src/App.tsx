@@ -130,17 +130,13 @@ class App extends React.Component<{}, State> {
     const roll = this.state.rolls[0] ? this.state.rolls[0].value : NaN;
     const result = fp - roll;
     const hit = roll !== 10 && result >= 0;
-    if (this.state.rolls[0]) {
-      return <div className="c" style={{
-        borderColor: 'gray',
-        backgroundColor: hit ? 'yellow' : 'lightgray'
-      }}>
-        <div className="v">{hit && result}</div>
-        <div className="small">{hit ? 'HIT' : 'MISS'}</div>
-      </div>;
-    } else {
-      return <div className="c" style={{ border: 'red' }}><div className="v" /></div>
-    }
+    return <div className="c" style={{
+      borderColor: 'gray',
+      backgroundColor: hit ? 'yellow' : '#fcc'
+    }}>
+      <div className="v">{fp}</div>
+      <div className="small">{hit ? 'HIT ' + value(result) : (isFinite(roll) && 'MISS')}</div>
+    </div>;
   }
 
   render() {
@@ -175,7 +171,7 @@ class App extends React.Component<{}, State> {
         {/* <div>{this.firepower} + {this.result} = {fp} </div> */}
         {this.state.rolls[0] && <div>
           {/* FP:{fp} - Roll:{roll} = {fp - roll} {fp - roll >= 0 ? 'HIT' : 'MISS'} */}
-          <div style={{paddingTop: 10}}>
+          <div style={{ paddingTop: 10 }}>
             Roll history:
             {this.state.rolls.map(roll =>
               <div key={roll.time.getTime()}>{roll.value}: {roll.time.toLocaleTimeString()}</div>)}
