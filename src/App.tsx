@@ -125,6 +125,23 @@ class App extends React.Component<{}, State> {
       <div className="v">AC</div>
     </div>
   }
+  renderResult = () => {
+    const fp = this.firepower + this.result;
+    const roll = this.state.rolls[0] ? this.state.rolls[0].value : NaN;
+    const result = fp - roll;
+    const hit = roll !== 10 && result >= 0;
+    if (this.state.rolls[0]) {
+      return <div className="c" style={{
+        borderColor: 'gray',
+        backgroundColor: hit ? 'yellow' : 'lightgray'
+      }}>
+        <div className="v">{hit && result}</div>
+        <div className="small">{hit ? 'HIT' : 'MISS'}</div>
+      </div>;
+    } else {
+      return <div className="c" style={{ border: 'red' }}><div className="v" /></div>
+    }
+  }
 
   render() {
     const n = <div className="c" style={{ border: 'red' }}><div className="v" /></div>
@@ -140,29 +157,31 @@ class App extends React.Component<{}, State> {
     const r = this.renderSwitch;
     const ac = this.renderReset;
     const dice = this.renderDice;
-    const fp = this.firepower + this.result;
-    const roll = this.state.rolls[0] ? this.state.rolls[0].value : NaN;
+    const result = this.renderResult;
     return (
       <div>
-        <div id="panel"/>
+        <div id="panel" />
         <div className="g">
           {r(defs.conceal.conceal, 'conceal')} {r(defs.adjacent.adjacent, 'adjacent')} {s('inf')} {s('mort')} {s('gun')}
           {r(defs.terrain.wooden_building, 'terrain')}   {r(defs.elevation.lower, 'elevation')}    {s('art')} {s('stuka')}  {s('flame')}
           {r(defs.terrain.stone_building, 'terrain')}    {r(defs.elevation.higher, 'elevation')}
           {r(defs.in_open['1-4'], 'in_open')} {r(defs.in_open['5-8'], 'in_open')} {r(defs.in_open['> 8'], 'in_open')}
-          {r(defs.terrain.hedgerow, 'terrain')} {r(defs.terrain.pillbox, 'terrain')}  {r(defs.final_op.final_op, 'final_op')}   {n}  {dice()}
+          {r(defs.terrain.hedgerow, 'terrain')} {r(defs.terrain.pillbox, 'terrain')}  {r(defs.final_op.final_op, 'final_op')} {result()} {dice()}
           {r(defs.terrain.woods, 'terrain')}    {r(defs.terrain.truck, 'terrain')}    {k(1)} {k(2)} {k(3)}
           {r(defs.terrain.foxhole_in_woods, 'terrain')}  {r(defs.terrain.dike_road, 'terrain')} {k(4)} {k(5)} {k(6)}
           {r(defs.terrain.foxhole, 'terrain')}  {r(defs.smoke.smoke, 'smoke')}  {k(7)} {k(8)} {k(9)}
           {r(defs.terrain.fortified, 'terrain')} {r(defs.smoke.dispersed_smoke, 'smoke')}  {kk(10)} {k(0)} {ac()}
         </div>
-        <div>{this.firepower} + {this.result} = {fp} </div>
+        {/* <div>{this.firepower} + {this.result} = {fp} </div> */}
         {this.state.rolls[0] && <div>
-          FP:{fp} - Roll:{roll} = {fp - roll} {fp - roll >= 0 ? 'HIT' : 'MISS'}
+          {/* FP:{fp} - Roll:{roll} = {fp - roll} {fp - roll >= 0 ? 'HIT' : 'MISS'} */}
+          <div style={{paddingTop: 10}}>
+            Roll history:
+            {this.state.rolls.map(roll =>
+              <div key={roll.time.getTime()}>{roll.value}: {roll.time.toLocaleTimeString()}</div>)}
+          </div>
         </div>}
-        <pre>{JSON.stringify(this.state, null, ' ')}</pre>
-        {this.state.rolls.map(roll =>
-          <div key={roll.time.getTime()}>{roll.value}: {roll.time.toLocaleTimeString()}</div>)}
+
       </div>
     );
   }
