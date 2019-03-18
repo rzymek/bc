@@ -189,7 +189,8 @@ class App extends React.Component<{}, State> {
       .reduce((a, b) => a + b, 0)
   }
   get firepower() {
-    return (this.state.firepower || NaN) + (this.state.firepower10 || 0);
+    const {firepower=NaN} =  this.state;
+    return firepower + (this.state.firepower10 || 0);
   }
 }
 
