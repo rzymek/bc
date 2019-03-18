@@ -1,7 +1,7 @@
 {
-  "main.css": "/bc/static/css/main.a97bb77e.chunk.css",
-  "main.js": "/bc/static/js/main.53e1c9e1.chunk.js",
-  "main.js.map": "/bc/static/js/main.53e1c9e1.chunk.js.map",
+  "main.css": "/bc/static/css/main.8a5659fb.chunk.css",
+  "main.js": "/bc/static/js/main.95d8fef5.chunk.js",
+  "main.js.map": "/bc/static/js/main.95d8fef5.chunk.js.map",
   "static/js/1.b5c8f79e.chunk.js": "/bc/static/js/1.b5c8f79e.chunk.js",
   "static/js/1.b5c8f79e.chunk.js.map": "/bc/static/js/1.b5c8f79e.chunk.js.map",
   "runtime~main.js": "/bc/static/js/runtime~main.e834b513.js",
@@ -29,8 +29,8 @@
   "static/media/woods.png": "/bc/static/media/woods.db8db471.png",
   "static/media/dice-roll.mp3": "/bc/static/media/dice-roll.afd53a36.mp3",
   "static/media/d10.svg": "/bc/static/media/d10.edd08849.svg",
-  "static/css/main.a97bb77e.chunk.css.map": "/bc/static/css/main.a97bb77e.chunk.css.map",
+  "static/css/main.8a5659fb.chunk.css.map": "/bc/static/css/main.8a5659fb.chunk.css.map",
   "index.html": "/bc/index.html",
-  "precache-manifest.a39bb80b996ebdb08e3925a65cdb3abb.js": "/bc/precache-manifest.a39bb80b996ebdb08e3925a65cdb3abb.js",
+  "precache-manifest.e4510d3e2ade63b499019274afa45233.js": "/bc/precache-manifest.e4510d3e2ade63b499019274afa45233.js",
   "service-worker.js": "/bc/service-worker.js"
 }

@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/bc/static/media/higher.f26888fc.png"
   },
   {
-    "revision": "53e1c9e12fc32dfbf54a",
-    "url": "/bc/static/css/main.a97bb77e.chunk.css"
+    "revision": "95d8fef561af007b0a23",
+    "url": "/bc/static/css/main.8a5659fb.chunk.css"
   },
   {
     "revision": "b5c8f79ea9362d9f1b3e",
@@ -56,8 +56,8 @@ self.__precacheManifest = [
     "url": "/bc/static/media/hedgerow.52c5c07d.png"
   },
   {
-    "revision": "53e1c9e12fc32dfbf54a",
-    "url": "/bc/static/js/main.53e1c9e1.chunk.js"
+    "revision": "95d8fef561af007b0a23",
+    "url": "/bc/static/js/main.95d8fef5.chunk.js"
   },
   {
     "revision": "aa95066fbad8c96719627bf4cc5bee4a",
@@ -108,7 +108,7 @@ self.__precacheManifest = [
     "url": "/bc/static/media/d10.edd08849.svg"
   },
   {
-    "revision": "f2132766cad76aefc61b3b622786a4ba",
+    "revision": "f97d3e552ea75a354c63479a1a9ffb5a",
     "url": "/bc/index.html"
   }
 ];
